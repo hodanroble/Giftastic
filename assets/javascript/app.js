@@ -25,7 +25,7 @@ function buttonCreation() {
         $("#iNewGifBtnZone").append(a); //add the button to the list.
     }
 }
-$("#iAddEntry").on("click", function(event) {
+$("#iAddEntry").on("click", function (event) {
     /*when this button is clicked it will add the text into the array
     and create a button. */
     event.preventDefault();
@@ -49,31 +49,31 @@ function pullGifImg() {
 
     //AJAX call to get the information for the search to the GIF API
     $.ajax({
-        url: queryURL,
-        method: "GET"
-    })
+            url: queryURL,
+            method: "GET"
+        })
 
-    .done(function(response) {
-        var results = response.data;
+        .done(function (response) {
+            var results = response.data;
 
-        for (var i = 0; i < results.length; i++) {
-            if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
-                var gifDiv = $("<div class='item'>");
+            for (var i = 0; i < results.length; i++) {
+                if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                    var gifDiv = $("<div class='item'>");
 
-                var rating = results[i].rating;
+                    var rating = results[i].rating;
 
-                var p = $("<p>").text("Rating: " + rating);
+                    var p = $("<p>").text("Rating: " + rating);
 
-                var gifImage = $("<img>");
+                    var gifImage = $("<img>");
 
-                gifImage.attr("src", results[i].images.fixed_height.url);
+                    gifImage.attr("src", results[i].images.fixed_height.url);
 
-                gifDiv.append(p);
-                gifDiv.append(gifImage);
+                    gifDiv.append(p);
+                    gifDiv.append(gifImage);
 
-                $("#gifsGoHere").prepend(gifDiv);
+                    $("#gifsGoHere").prepend(gifDiv);
+                }
             }
-        }
-    })
+        })
 
 }
