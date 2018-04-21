@@ -1,0 +1,21 @@
+.container {
+    background-color: red; 
+}
+.clickMe {
+    background-color: blue;
+    /*background color of the button */
+    font-size: 15px;
+    border-radius: 4px;
+    position: relative;
+    border: none;
+    color: #FFFFFF;
+    padding: 3px;
+    min-width: 100px;
+    min-height: 68px;
+    text-align: center;
+}
+
+h1 {
+    color: blue;
+    font-family: "Comic Sans MS", cursive, sans-serif; 
+}

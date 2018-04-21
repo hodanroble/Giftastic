@@ -1,43 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
 
 <head>
-  <meta charset="utf-8">
-  <title>Giphy API</title>
+    <title>Giftastic Heroes</title>
+    <meta charset="utf-8" />
+    <!-- Link to styling -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 
 <body>
 
-  <div id="gifs-appear-here"></div>
+    <div class="container">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script type="text/javascript">
-    // API Key
-    var api_key = "824o5KFOktF8K14ZKGWyXFpylTXADkli";
-    // Example queryURL for Giphy API
-    var queryURL = "http://api.giphy.com/v1/gifs/random?&api_key=824o5KFOktF8K14ZKGWyXFpylTXADkli&tag=&limit=5"
-    $.ajax({
-      url: queryURL,
-      method: 'GET'
-    }).done(function(response) {
-      console.log(response);
-    // Store the response from the Ajax request in a variable
-      var results = response.data;
-      console.log(results);
-    // Loop through every result item
-    for (var i = 0; i < results.length; i++) {
-    // Create and store a div tag
-    var animal = $("<div>");
-    //Create a paragraph tag with the results item rating
-    var p = $("<p>").text("Rating: " + results[i].rating);
-    //Append the divs and p tags
-    animal.append(p);
-    //prepend the data to the HTML page
-    $("#gifs-appear-here").prepend(animal);
-    }
-    });
-  </script>
+        <h1>Click your favorite hero below!</h1>
 
+        <!-- made a default button that will be used along with the styling that will go in behind it. -->
+        <div id="iNewGifBtnZone" class="buttonContainer"></div>
+
+        <br>
+        <br>
+
+        <!-- Area to search up gifs and allow users to add their own button -->
+        <form id="iEntryForm">
+            <label for="iLblEntry">Name Your Favorite Hero: </label>
+            <input type="text" id="iInpEntry"><br>
+
+            <!-- Button triggers new movie to be added -->
+            <input id="iAddEntry" type="button" class="clickMe" value="Submit"></input>
+        </form>
+
+        <div id="gifsGoHere"></div>
+
+    </div>
+
+    <!-- Link to jQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Link for Javascript-->
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
 </body>
 
 </html>
